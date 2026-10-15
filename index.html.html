@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website Musyawarah Kelompok Pengawas Sekolah Jenjang SMA Cabang Dinas Pendidikan Wilayah X Provinsi Jawa Barat.">
+  <title>MKPS SMA KCD X | Kolaborasi Pengawas Sekolah</title>
+  <style>
+    :root {
+      --navy: #12345a;
+      --blue: #1d5d8f;
+      --teal: #1d827a;
+      --gold: #e5b85c;
+      --ink: #1f2937;
+      --muted: #5b6778;
+      --pale: #f2f7fb;
+      --white: #ffffff;
+      --line: #dbe5ee;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--ink);
+      line-height: 1.65; background: var(--white);
+    }
+    a { color: inherit; }
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line); backdrop-filter: blur(10px);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand-mark {
+      width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center;
+      color: white; font-weight: 800; letter-spacing: -.5px;
+      background: linear-gradient(135deg, var(--navy), var(--teal));
+    }
+    .brand-name { font-weight: 800; color: var(--navy); line-height: 1.2; }
+    .brand-name small { display: block; font-weight: 600; font-size: 11px; color: var(--muted); margin-top: 4px; }
+    nav { display: flex; gap: 22px; align-items: center; }
+    nav a { font-size: 14px; text-decoration: none; color: #344256; font-weight: 650; }
+    nav a:hover { color: var(--teal); }
+    .menu-button { display: none; border: 1px solid var(--line); background: white; border-radius: 9px; padding: 8px 12px; font-size: 20px; }
+    .hero {
+      background: radial-gradient(circle at 85% 20%, rgba(29,130,122,.28), transparent 28%),
+                  linear-gradient(125deg, #102d50 0%, #174f78 62%, #1d827a 100%);
+      color: white; padding: 86px 0 82px; overflow: hidden;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; align-items: center; gap: 48px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 800; color: #f3d58d; }
+    h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.1; margin: 16px 0 22px; letter-spacing: -1.5px; }
+    .hero p { max-width: 680px; color: #e3edf5; font-size: 17px; margin: 0 0 28px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 12px 19px; border-radius: 10px; text-decoration: none; font-weight: 750; font-size: 14px; }
+    .btn-primary { color: var(--navy); background: #fff; }
+    .btn-outline { color: white; border: 1px solid rgba(255,255,255,.5); }
+    .hero-card {
+      border: 1px solid rgba(255,255,255,.24); border-radius: 24px; padding: 28px;
+      background: rgba(255,255,255,.10); box-shadow: 0 20px 50px rgba(0,0,0,.12);
+    }
+    .hero-card .big { font-size: 60px; font-weight: 850; line-height: 1; color: #f3d58d; }
+    .hero-card h2 { font-size: 21px; margin: 14px 0 8px; }
+    .hero-card p { font-size: 14px; margin: 0; }
+    section { padding: 76px 0; }
+    .section-head { max-width: 730px; margin-bottom: 32px; }
+    .section-label { color: var(--teal); font-size: 12px; font-weight: 850; letter-spacing: 1.8px; text-transform: uppercase; }
+    h2.section-title { color: var(--navy); font-size: clamp(28px, 3.5vw, 39px); line-height: 1.2; margin: 8px 0 12px; letter-spacing: -.7px; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .panel { background: var(--pale); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
+    .panel h3 { margin: 0 0 12px; color: var(--navy); font-size: 22px; }
+    .panel p { margin: 0; color: #435166; }
+    .vision-mark { font-size: 28px; color: var(--teal); margin-bottom: 10px; }
+    .mission-list { display: grid; gap: 14px; }
+    .mission-item { display: flex; gap: 14px; align-items: flex-start; }
+    .number { flex: 0 0 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: #dcefeb; color: #176b64; font-weight: 850; }
+    .mission-item p { margin: 2px 0 0; color: #435166; }
+    .programs { background: var(--pale); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: white; border: 1px solid var(--line); border-radius: 16px; padding: 24px; transition: transform .2s, box-shadow .2s; }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(18,52,90,.08); }
+    .card-icon { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 13px; background: #e0f0ed; color: var(--teal); font-size: 22px; }
+    .card h3 { color: var(--navy); font-size: 18px; margin: 16px 0 8px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .value { border-left: 4px solid var(--gold); padding: 4px 0 4px 16px; }
+    .value h3 { color: var(--navy); margin: 0 0 4px; font-size: 17px; }
+    .value p { color: var(--muted); margin: 0; font-size: 14px; }
+    .cta { padding: 0 0 76px; }
+    .cta-box { border-radius: 22px; padding: 36px; background: linear-gradient(115deg, var(--navy), #1d827a); color: white; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .cta-box h2 { margin: 0 0 8px; font-size: 27px; }
+    .cta-box p { margin: 0; color: #e0edf2; max-width: 690px; }
+    footer { background: #0d2541; color: #dce7f0; padding: 28px 0; font-size: 13px; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    footer strong { color: white; }
+    @media (max-width: 800px) {
+      .hero-grid, .about-grid { grid-template-columns: 1fr; }
+      .hero { padding: 62px 0; }
+      .hero-card { max-width: 440px; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .values { grid-template-columns: repeat(2, 1fr); }
+      nav { display: none; position: absolute; left: 0; right: 0; top: 76px; padding: 18px 4%; background: white; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; }
+      nav.open { display: flex; }
+      .menu-button { display: block; }
+    }
+    @media (max-width: 520px) {
+      .cards, .values { grid-template-columns: 1fr; }
+      section { padding: 56px 0; }
+      .cta-box { padding: 26px; align-items: flex-start; flex-direction: column; }
+      .brand-name { font-size: 14px; }
+      .brand-name small { font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#beranda" aria-label="MKPS SMA KCD X">
+      <span class="brand-mark">MKPS</span>
+      <span class="brand-name">MKPS SMA KCD X<small>Cabang Dinas Pendidikan Wilayah X</small></span>
+    </a>
+    <button class="menu-button" id="menuButton" aria-label="Buka menu" aria-expanded="false">☰</button>
+    <nav id="mainNav">
+      <a href="#beranda">Beranda</a>
+      <a href="#profil">Profil</a>
+      <a href="#visi-misi">Visi &amp; Misi</a>
+      <a href="#program">Program Kerja</a>
+      <a href="#nilai">Nilai Kerja</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="beranda">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Kolaborasi • Refleksi • Transformasi</div>
+        <h1>Bersama Menguatkan Mutu Pendidikan SMA</h1>
+        <p>Wadah koordinasi dan pengembangan profesional pengawas sekolah jenjang SMA di lingkungan Cabang Dinas Pendidikan Wilayah X Provinsi Jawa Barat.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#visi-misi">Kenali Visi &amp; Misi</a>
+          <a class="btn btn-outline" href="#program">Lihat Fokus Program</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="big">01</div>
+        <h2>Satu Kolaborasi, Banyak Dampak</h2>
+        <p>Menguatkan praktik pengawasan yang profesional, berbasis data dan bukti, serta berorientasi pada perbaikan mutu satuan pendidikan secara berkelanjutan.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="profil">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-label">Profil Kelompok Kerja</div>
+        <h2 class="section-title">Tentang MKPS SMA KCD X</h2>
+        <p>MKPS SMA KCD X merupakan forum profesional pengawas sekolah jenjang SMA untuk memperkuat koordinasi, kolaborasi, peningkatan kompetensi, dan kualitas pelaksanaan tugas pengawasan.</p>
+      </div>
+      <div class="about-grid">
+        <div class="panel">
+          <div class="vision-mark">◎</div>
+          <h3>Peran Kami</h3>
+          <p>Mendorong pelaksanaan pengawasan yang reflektif, objektif, akuntabel, dan sesuai kebutuhan nyata satuan pendidikan melalui pembinaan, pendampingan, pemantauan, evaluasi, serta tindak lanjut perbaikan.</p>
+        </div>
+        <div class="panel">
+          <div class="vision-mark">↗</div>
+          <h3>Arah Kerja</h3>
+          <p>Menjadikan data, bukti, dialog profesional, dan praktik baik sebagai dasar untuk membantu sekolah mengembangkan kepemimpinan pembelajaran serta meningkatkan mutu pendidikan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visi-misi">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-label">Arah Strategis</div>
+        <h2 class="section-title">Visi dan Misi</h2>
+        <p>Landasan bersama dalam menjalankan peran dan program kerja MKPS SMA KCD X.</p>
+      </div>
+      <div class="about-grid">
+        <div class="panel">
+          <h3>Visi</h3>
+          <p><strong>“Terwujudnya Pengawas Sekolah Jenjang SMA yang Profesional, Kolaboratif, Berintegritas, dan Transformatif dalam Mewujudkan Satuan Pendidikan yang Bermutu dan Berkelanjutan di Lingkungan Cabang Dinas Pendidikan Wilayah X Provinsi Jawa Barat.”</strong></p>
+        </div>
+        <div class="panel">
+          <h3>Misi</h3>
+          <div class="mission-list">
+            <div class="mission-item"><span class="number">1</span><p>Meningkatkan profesionalisme pengawas melalui pengembangan kompetensi dan pembelajaran berkelanjutan.</p></div>
+            <div class="mission-item"><span class="number">2</span><p>Memperkuat koordinasi, kolaborasi, dan berbagi praktik baik antar-pengawas.</p></div>
+            <div class="mission-item"><span class="number">3</span><p>Meningkatkan kualitas pembinaan dan pendampingan satuan pendidikan.</p></div>
+            <div class="mission-item"><span class="number">4</span><p>Mengoptimalkan pemantauan dan evaluasi mutu berdasarkan data dan bukti.</p></div>
+            <div class="mission-item"><span class="number">5</span><p>Mengembangkan budaya refleksi, inovasi, dan perbaikan berkelanjutan.</p></div>
+            <div class="mission-item"><span class="number">6</span><p>Menegakkan integritas, objektivitas, etika profesi, dan akuntabilitas.</p></div>
+            <div class="mission-item"><span class="number">7</span><p>Membangun kemitraan dengan satuan pendidikan dan pemangku kepentingan terkait.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="programs" id="program">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-label">Fokus Kegiatan</div>
+        <h2 class="section-title">Program Kerja Utama</h2>
+        <p>Ruang lingkup berikut dapat dijadikan kerangka awal dan disesuaikan dengan program kerja tahunan yang disepakati anggota MKPS.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="card-icon">▣</div><h3>Koordinasi Pengawasan</h3><p>Menyelaraskan perencanaan, pelaksanaan, dan tindak lanjut pengawasan antar-pengawas sekolah.</p></article>
+        <article class="card"><div class="card-icon">↗</div><h3>Pengembangan Kompetensi</h3><p>Diskusi profesional, kajian regulasi, dan penguatan kapasitas sesuai kebutuhan tugas pengawasan.</p></article>
+        <article class="card"><div class="card-icon">⌕</div><h3>Pendampingan Sekolah</h3><p>Mendukung kepala sekolah dan warga sekolah dalam perbaikan pengelolaan serta kepemimpinan pembelajaran.</p></article>
+        <article class="card"><div class="card-icon">▤</div><h3>Analisis Data dan Bukti</h3><p>Menggunakan data, dokumen, observasi, dan hasil dialog sebagai dasar rekomendasi yang relevan.</p></article>
+        <article class="card"><div class="card-icon">✓</div><h3>Evaluasi dan Tindak Lanjut</h3><p>Meninjau pelaksanaan program, memantau kemajuan, dan menyepakati langkah perbaikan berikutnya.</p></article>
+        <article class="card"><div class="card-icon">◇</div><h3>Berbagi Praktik Baik</h3><p>Mendokumentasikan dan menyebarluaskan pengalaman pengawasan yang bermanfaat bagi peningkatan mutu.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="nilai">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-label">Budaya Kerja</div>
+        <h2 class="section-title">Nilai yang Kami Pegang</h2>
+        <p>Nilai kerja yang menjadi pengingat dalam berkolaborasi dan melaksanakan tugas pengawasan.</p>
+      </div>
+      <div class="values">
+        <div class="value"><h3>Profesional</h3><p>Bekerja berdasarkan kompetensi, standar, dan bukti yang dapat dipertanggungjawabkan.</p></div>
+        <div class="value"><h3>Kolaboratif</h3><p>Menghargai kontribusi, berbagi pengetahuan, dan membangun solusi bersama.</p></div>
+        <div class="value"><h3>Berintegritas</h3><p>Menjaga objektivitas, kejujuran, etika, dan konsistensi dalam bertugas.</p></div>
+        <div class="value"><h3>Transformatif</h3><p>Mendorong perubahan nyata melalui refleksi dan perbaikan berkelanjutan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <div>
+          <h2>Berkolaborasi untuk Perbaikan yang Bermakna</h2>
+          <p>Setiap proses pengawasan diarahkan untuk membantu satuan pendidikan mengenali kebutuhan, menguatkan praktik baik, dan menindaklanjuti perbaikan secara berkelanjutan.</p>
+        </div>
+        <a class="btn btn-primary" href="#beranda">Kembali ke Atas ↑</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div><strong>MKPS SMA KCD X</strong><br>Musyawarah Kelompok Pengawas Sekolah Jenjang SMA</div>
+    <div>Cabang Dinas Pendidikan Wilayah X<br>Provinsi Jawa Barat</div>
+    <div>© <span id="year"></span> MKPS SMA KCD X</div>
+  </div>
+</footer>
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const nav = document.getElementById('mainNav');
+  menuButton.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+  });
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+  }));
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
